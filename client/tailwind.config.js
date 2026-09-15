@@ -1,10 +1,17 @@
 /** @type {import('tailwindcss').Config} */
-import daisyui from 'daisyui'
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
+import daisyui from "daisyui";
+
+const projectRoot = dirname(fileURLToPath(import.meta.url));
+
 export default {
-  content: ["./index.html", "./src/**/*.{js, ts, jsx, tsx}"],
+  content: [
+    resolve(projectRoot, "index.html"),
+    resolve(projectRoot, "src/**/*.{js,ts,jsx,tsx}"),
+  ],
   theme: {
     extend: {},
   },
   plugins: [daisyui],
-}
-
+};
